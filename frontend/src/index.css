@@ -1,0 +1,36 @@
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../public/bgImage.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  cursor: pointer;
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  cursor: pointer;
+  background-color: #555;
+}
+::-webkit-scrollbar-thumb {
+  background: #121212;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #242424;
+}

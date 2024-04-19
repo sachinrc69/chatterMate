@@ -11,8 +11,9 @@ const userRoutes = require("./routes/user.route");
 const groupRoutes = require("./routes/group.route");
 const cors = require("cors");
 
-const dirName = path.resolve();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(cors());
 dotenv.config();

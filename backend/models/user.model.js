@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema(
     },
     profilePic: { type: String, default: "" },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("User", userSchema);

@@ -21,7 +21,7 @@ const converstaionSchema = mongoose.Schema(
       default: "",
     },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Conversation", converstaionSchema);

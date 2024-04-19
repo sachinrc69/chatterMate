@@ -14,10 +14,14 @@ const messageSchema = mongoose.Schema(
     },
     message: {
       type: String,
-      required: true,
+      required: false,
+    },
+    img: {
+      type: String,
+      required: false,
     },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Message", messageSchema);
