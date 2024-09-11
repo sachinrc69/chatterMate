@@ -5,7 +5,8 @@ import { CurrentChat } from "../../contexts/currentChat";
 import { CurrentGroup } from "../../contexts/currentGroup";
 
 export const MessageHeader = () => {
-  const { chatingWith, chatType } = useContext(CurrentChat);
+  const { chatingWith, setChattingWith, chatType, setChatType } =
+    useContext(CurrentChat);
   const { group, setGroup } = useContext(CurrentGroup);
   const [user, setUser] = useState(null);
 
@@ -44,6 +45,13 @@ export const MessageHeader = () => {
     <div className="navbar bg-base-100">
       <div className="flex-1">
         <div className="flex-1">
+          <button
+            onClick={() => {
+              setChattingWith(null);
+            }}
+          >
+            close
+          </button>
           <a className="btn btn-ghost text-xl">
             {chatType === "single" ? user?.username : group?.groupName}
           </a>

@@ -8,6 +8,7 @@ const {
   getGroupMessagesController,
   sendGroupMessageController,
   sendImageController,
+  sendGroupImageController,
 } = require("../controllers/message.controller.js");
 const router = express.Router();
 const imagesPath = path.join(__dirname, "../../frontend/src/images");
@@ -29,6 +30,12 @@ router.post(
   isAuth,
   upload.single("image"),
   sendImageController
+);
+router.post(
+  "/send/image/group/:userId",
+  isAuth,
+  upload.single("image"),
+  sendGroupImageController
 );
 router.post("/send/group/:userId", isAuth, sendGroupMessageController);
 router.get("/:userId", isAuth, getMessagesController);

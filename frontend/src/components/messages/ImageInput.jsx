@@ -12,8 +12,9 @@ const ImageInput = ({ setshowImageUploadOption }) => {
     e.preventDefault();
     const data = new FormData(e.target);
     const imgData = Object.fromEntries(data.entries());
-
     sendImage({ imgData });
+
+    setshowImageUploadOption(false);
   };
   return (
     <div className="w-full flex justify-center">

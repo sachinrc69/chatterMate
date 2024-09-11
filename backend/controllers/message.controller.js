@@ -53,6 +53,45 @@ module.exports.sendImageController = async (req, res, next) => {
     next(error);
   }
 };
+module.exports.sendGroupImageController = async (req, res, next) => {
+  try {
+    const message = req.body.message;
+    const receiverId = req.params.userId;
+    const senderId = req.userId;
+    const img = req.file.filename;
+
+    let conversation = await Conversation.findOne({ _id: receiverId });
+
+    const newMessage = new Message({ senderId, receiverId, img });
+
+    if (newMessage) {
+      conversation.messages.push(newMessage._id);
+      res.status(200).json({ newMessage: newMessage });
+    }
+    Promise.all([newMessage.save(), conversation.save()]);
+
+    let participants = await conversation.participants;
+
+    console.log(participants);
+    const senderScoketId = getRecieverSocketId(senderId);
+    participants.forEach((element) => {
+      const recieverSocketId = getRecieverSocketId(element);
+      if (recieverSocketId) {
+        io.except(senderScoketId)
+          .to(recieverSocketId)
+          .emit("newMessage", newMessage);
+      }
+    });
+
+    // const recieverSocketId = getRecieverSocketId(receiverId);
+    // if (recieverSocketId) {
+    //   io.to(recieverSocketId).emit("newMessage", newMessage);
+    // }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 module.exports.sendMessageController = async (req, res, next) => {
   try {
     const message = req.body.message;

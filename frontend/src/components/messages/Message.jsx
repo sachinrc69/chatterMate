@@ -1,5 +1,6 @@
 import React, { useRef, useContext } from "react";
 import { CurrentGroup } from "../../contexts/currentGroup";
+import imageLoading from "../../images/imageLoading.jpg";
 const Message = ({ chatType, message, avatar }) => {
   const { group } = useContext(CurrentGroup);
   console.log(group?.participants);
@@ -13,6 +14,15 @@ const Message = ({ chatType, message, avatar }) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
+
+  const imageExists = (imagePath) => {
+    try {
+      require(imagePath);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
 
   return (
     <div className={` mb-3 chat ${posi.current ? "chat-start" : "chat-end "}`}>
@@ -32,10 +42,12 @@ const Message = ({ chatType, message, avatar }) => {
           <img
             loading="lazy"
             src={
-              require(`../../images/${message?.img}`) ||
-              require(`../../images/1713537775380797.jpg`)
+              require(`../../images/${message?.img}`)
+                ? require(`../../images/${message?.img}`)
+                : require("../../images/imageLoading.jpg")
             }
             alt="Image unavailable"
+            className="max-h-48"
           ></img>
         )}
         <div className="flex gap-2">

@@ -41,7 +41,7 @@ const MessageInput = ({ setshowImageUploadOption }) => {
           >
             <BiImageAdd />
           </button>
-          <button type="button" className="text-2xl">
+          <button type="submit" className="text-2xl">
             {loading ? (
               <span className="loading loading-ring"></span>
             ) : (
