@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from "react";
 import { CurrentGroup } from "../../contexts/currentGroup";
-import imageLoading from "../../images/imageLoading.jpg";
+// import imageLoading from "../../images/imageLoading.jpg";
 const Message = ({ chatType, message, avatar }) => {
   const { group } = useContext(CurrentGroup);
   console.log(group?.participants);
@@ -15,14 +15,14 @@ const Message = ({ chatType, message, avatar }) => {
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
 
-  const imageExists = (imagePath) => {
-    try {
-      require(imagePath);
-      return true;
-    } catch (error) {
-      return false;
-    }
-  };
+  // const imageExists = (imagePath) => {
+  //   try {
+  //     require(imagePath);
+  //     return true;
+  //   } catch (error) {
+  //     return false;
+  //   }
+  // };
 
   return (
     <div className={` mb-3 chat ${posi.current ? "chat-start" : "chat-end "}`}>
@@ -36,9 +36,9 @@ const Message = ({ chatType, message, avatar }) => {
           posi.current ? "bg-blue-400" : " bg-green-400 "
         }`}
       >
-        {message?.message ? (
-          message.message
-        ) : (
+        {/* {message?.message ? ( */}
+        message.message
+        {/* ) : (
           <img
             loading="lazy"
             src={
@@ -49,7 +49,7 @@ const Message = ({ chatType, message, avatar }) => {
             alt="Image unavailable"
             className="max-h-48"
           ></img>
-        )}
+        )} */}
         <div className="flex gap-2">
           {!chatType ? (
             <p className="text-xs text-end text-gray-200 font-mono">
