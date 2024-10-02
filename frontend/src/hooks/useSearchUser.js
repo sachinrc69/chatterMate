@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { OtherUesrsContext } from "../contexts/otherUesrsContext";
+import { url } from "../backendUrl";
 
 const useSearchUser = () => {
   const authToken = localStorage.getItem("authToken");

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { OtherUesrsContext } from "../contexts/otherUesrsContext";
+import { url } from "../backendUrl";
 
 const useGetUsers = () => {
   const { setOtherUsers, setLoading } = useContext(OtherUesrsContext);

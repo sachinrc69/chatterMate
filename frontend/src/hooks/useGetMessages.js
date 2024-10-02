@@ -3,6 +3,7 @@ import { CurrentChat } from "../contexts/currentChat";
 import { SocketContext } from "../contexts/socketContext";
 import notificationSound from "../sounds/moan.mp3";
 import { messagesContext } from "../contexts/messages";
+import { url } from "../backendUrl";
 
 const useGetMessages = () => {
   const { chatingWith, chatType } = useContext(CurrentChat);

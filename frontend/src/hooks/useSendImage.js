@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { CurrentChat } from "../contexts/currentChat";
 import { messagesContext } from "../contexts/messages";
+import { url } from "../backendUrl";
+
 const useSendImage = () => {
   const { messages, setMessages } = useContext(messagesContext);
 

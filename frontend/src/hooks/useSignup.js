@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
+import { url } from "../backendUrl";
+
 const useSignup = () => {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
