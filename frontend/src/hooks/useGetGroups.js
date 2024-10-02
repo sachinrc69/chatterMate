@@ -7,7 +7,7 @@ const useGetGroups = () => {
   const getGroups = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/group/allGroups", {
+      const res = await fetch(`${url}/api/group/allGroups`, {
         method: "GET",
         headers: {
           Authorization: "Bearer " + authToken,

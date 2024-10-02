@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { url } from "../backendUrl";
 
 const useCreateNewGroup = () => {
   const authToken = localStorage.getItem("authToken");
@@ -10,7 +11,7 @@ const useCreateNewGroup = () => {
   const createGroup = async ({ setNewGroup }) => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/group/newGroup", {
+      const res = await fetch(`${url}/api/group/newGroup`, {
         method: "POST",
         headers: {
           Authorization: "Bearer " + authToken,

@@ -14,7 +14,7 @@ export const MessageHeader = () => {
   console.log(group);
 
   const getChattingWithDetails = async () => {
-    const res = await fetch(`http://localhost:5000/api/users/${chatingWith}`, {
+    const res = await fetch(`${url}/api/users/${chatingWith}`, {
       headers: { Authorization: "Bearer " + authToken },
     });
     const resData = await res.json();
@@ -26,7 +26,7 @@ export const MessageHeader = () => {
   };
 
   const getChattingWithGroupDetails = async () => {
-    const res = await fetch(`http://localhost:5000/api/group/${chatingWith}`, {
+    const res = await fetch(`${url}/api/group/${chatingWith}`, {
       headers: { Authorization: "Bearer " + authToken },
     });
     const resData = await res.json();

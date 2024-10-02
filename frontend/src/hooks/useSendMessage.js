@@ -11,7 +11,7 @@ const useSendMessage = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:5000/api/message/send${
+        `${url}/api/message/send${
           chatType === "group" ? "/group" : ""
         }/${chatingWith}`,
         {

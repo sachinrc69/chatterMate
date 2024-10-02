@@ -8,12 +8,9 @@ const useSearchUser = () => {
   const searchUser = async (search) => {
     try {
       setLoading(true);
-      const res = await fetch(
-        `http://localhost:5000/api/users/search/${search}`,
-        {
-          headers: { Authorization: "Bearer " + authToken },
-        }
-      );
+      const res = await fetch(`${url}/api/users/search/${search}`, {
+        headers: { Authorization: "Bearer " + authToken },
+      });
       const resData = await res.json();
       if (!res.ok) {
         throw new Error("failed to fetch ", 404);

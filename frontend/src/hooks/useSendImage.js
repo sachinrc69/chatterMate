@@ -13,7 +13,7 @@ const useSendImage = () => {
       formData.append("image", imgData.image);
       setLoading(true);
       const response = await fetch(
-        `http://localhost:5000/api/message/send/image${
+        `${url}/api/message/send/image${
           chatType === "group" ? "/group" : ""
         }/${chatingWith}`,
         {

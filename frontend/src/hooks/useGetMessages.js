@@ -14,7 +14,7 @@ const useGetMessages = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:5000/api/${
+        `${url}/api/${
           chatType === "single" ? "message" : "message/group"
         }/${chatingWith}`,
         {
