@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const path = require("path");
-// const App = express();
 const { app, server, io } = require("./socket/socket");
 const authRoutes = require("./routes/auth.route.js");
 const messageRoutes = require("./routes/message.route");
@@ -12,10 +11,11 @@ const groupRoutes = require("./routes/group.route");
 const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cookieParser());
-app.use(cors());
+
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
