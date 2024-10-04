@@ -7,10 +7,7 @@ module.exports = generateWebToken = (userId, res) => {
       expiresIn: "15d",
     });
 
-    res.cookie("authToken", authToken, {
-      httpOnly: true,
-      sameSite: "strict",
-    });
+    res.cookie("authToken", authToken);
   } catch (error) {
     next(error);
   }
