@@ -19,10 +19,12 @@ const useGetGroups = () => {
         console.log(resData);
         throw new Error(resData.message);
       } else {
-        setGroups(resData);
+        if (JSON.stringify(groups) !== JSON.stringify(resData)) {
+          setGroups(resData);
+        }
       }
     } catch (error) {
-      alert(error.message);
+      alert(error.message + " GROUPS DATA");
     } finally {
       setLoading(false);
     }

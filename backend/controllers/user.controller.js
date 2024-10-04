@@ -35,7 +35,9 @@ module.exports.searchUser = async (req, res, next) => {
   try {
     const searchText = req.params.searchText;
 
-    const users = await User.find({ username: searchText });
+    const users = await User.find({
+      username: { $regex: `^${searchText}`, $options: "i" },
+    });
     console.log(users);
     if (users) {
       res.status(200).json(users);

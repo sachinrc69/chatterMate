@@ -3,7 +3,8 @@ import { OtherUesrsContext } from "../contexts/otherUesrsContext";
 import { url } from "../backendUrl";
 
 const useGetUsers = () => {
-  const { setOtherUsers, setLoading } = useContext(OtherUesrsContext);
+  const { otherUsers, setOtherUsers, setLoading } =
+    useContext(OtherUesrsContext);
 
   const authToken = localStorage.getItem("authToken");
 
@@ -17,10 +18,12 @@ const useGetUsers = () => {
       if (!res.ok) {
         throw new Error(resData.message);
       } else {
-        setOtherUsers(resData);
+        if (JSON.stringify(otherUsers) !== JSON.stringify(resData)) {
+          setOtherUsers(resData);
+        }
       }
     } catch (error) {
-      alert(error.message);
+      alert(error.message + " USERS DATA");
     } finally {
       setLoading(false);
     }

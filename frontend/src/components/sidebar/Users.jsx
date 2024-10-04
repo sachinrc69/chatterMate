@@ -15,9 +15,13 @@ export const Users = () => {
   const { getGroups, groups } = useGetGroups();
 
   useEffect(() => {
-    getUsers();
-    getGroups();
+    const fetchUData = async () => {
+      await getUsers();
+      await getGroups();
+    };
+    fetchUData();
   }, []);
+
   return loading ? (
     <span className="loading loading-spinner mx-auto my-auto bg-white w-10 "></span>
   ) : (

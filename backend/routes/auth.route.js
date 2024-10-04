@@ -3,7 +3,8 @@ const { login, signup, logout } = require("../controllers/auth.controller");
 const { body } = require("express-validator");
 
 const router = express.Router();
-console.log(login);
+
+console.log("Hit request");
 
 router.post("/login", login);
 router.post(
